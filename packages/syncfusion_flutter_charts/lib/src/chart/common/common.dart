@@ -1074,9 +1074,10 @@ void animateScatterSeries(
   }
   final SegmentProperties segmentProperties =
       SegmentHelper.getSegmentProperties(segment);
-
-  segmentProperties.seriesRenderer.drawDataMarker(index, canvas, fillPaint,
-      strokePaint, x, y, segmentProperties.seriesRenderer);
+  if (point.yValue != -1) {
+    segmentProperties.seriesRenderer.drawDataMarker(index, canvas, fillPaint,
+        strokePaint, x, y, segmentProperties.seriesRenderer);
+  }
 }
 
 /// To animate bubble series

@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "ca56bdf501655188e7702c0b16054b84c6357bb65c084f1d0731c7bdcc3a6f75"
+build_start_time: [1688109377, 928226000]
+build_end_time: [1688109385, 901511000]
+inputs:
+  "/Users/bigoh/Documents/flutter-graph/packages/syncfusion_flutter_charts/example/macos/Flutter/GeneratedPluginRegistrant.swift": [1688109367, 8130826]
+  "/Users/bigoh/Documents/flutter-graph/packages/syncfusion_flutter_charts/example/macos/Runner/AppDelegate.swift": [1688108674, 502988126]
+  "/Users/bigoh/Documents/flutter-graph/packages/syncfusion_flutter_charts/example/macos/Runner/MainFlutterWindow.swift": [1688108674, 505379799]

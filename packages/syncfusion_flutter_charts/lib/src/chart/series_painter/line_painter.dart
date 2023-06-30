@@ -256,7 +256,9 @@ class LineChartPainter extends CustomPainter {
         if (withInXRange || withInYRange) {
           seriesRendererDetails.calculateRegionData(stateProperties,
               seriesRendererDetails, seriesIndex, currentPoint, pointIndex);
-          if ((currentPoint.isVisible && !currentPoint.isGap) &&
+          if ((currentPoint.isVisible &&
+                  !currentPoint.isGap &&
+                  currentPoint.yValue != -1) &&
               startPoint == null) {
             startPoint = currentPoint;
           }
@@ -269,7 +271,10 @@ class LineChartPainter extends CustomPainter {
             }
           }
 
-          if (startPoint != null && endPoint != null) {
+          if (startPoint != null &&
+              endPoint != null &&
+              startPoint.yValue != -1 &&
+              endPoint.yValue != -1) {
             seriesRendererDetails.drawSegment(
                 canvas,
                 seriesRenderer._createSegments(startPoint, endPoint,

@@ -429,6 +429,7 @@ class MarkerSettingsRenderer {
             // ignore: unnecessary_null_comparison
             point.outliersPoint[outlierIndex!] != null) &&
         point.isGap != true &&
+        point.yValue != -1 &&
         (!isScatter || series.markerSettings.shape == DataMarkerType.image) &&
         seriesRendererDetails
                 .markerShapes[isBoxSeries ? outlierIndex! : markerIndex] !=

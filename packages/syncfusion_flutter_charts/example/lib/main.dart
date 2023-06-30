@@ -26,11 +26,13 @@ class _MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<_MyHomePage> {
   List<_SalesData> data = [
-    _SalesData('Jan', 35),
-    _SalesData('Feb', 28),
-    _SalesData('Mar', 34),
-    _SalesData('Apr', 32),
-    _SalesData('May', 40)
+    _SalesData('Mon', -1),
+    _SalesData('Tue', 21),
+    _SalesData('Wed', -1),
+    _SalesData('Thu', 0),
+    _SalesData('Fri', -1),
+    _SalesData('Sat', 32),
+    _SalesData('Sun', -1)
   ];
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,36 @@ class _MyHomePageState extends State<_MyHomePage> {
         ),
         body: Column(children: [
           //Initialize the chart widget
+          SfCartesianChart(
+            plotAreaBorderWidth: 0,
+            trackballBehavior: TrackballBehavior(
+              enable: true,
+              markerSettings: const TrackballMarkerSettings(
+                  markerVisibility: TrackballVisibilityMode.visible),
+            ),
+            primaryXAxis: CategoryAxis(),
+            primaryYAxis: NumericAxis(
+              minimum: 0,
+              edgeLabelPlacement: EdgeLabelPlacement.shift,
+              axisLine: AxisLine(width: 0),
+              majorGridLines: MajorGridLines(color: Colors.red),
+              majorTickLines: MajorTickLines(width: 0),
+              minorTickLines: MinorTickLines(width: 0),
+            ),
+            tooltipBehavior: TooltipBehavior(enable: true),
+            series: [
+              LineSeries<_SalesData, String>(
+                markerSettings: MarkerSettings(isVisible: true),
+                dataSource: data,
+                xValueMapper: (_SalesData sales, _) => sales.year,
+                yValueMapper: (_SalesData sales, _) => sales.sales,
+                name: 'Month',
+                dataLabelSettings: const DataLabelSettings(isVisible: false),
+              ),
+
+              //   }
+            ],
+          ),
           SfCartesianChart(
               primaryXAxis: CategoryAxis(),
               // Chart title
